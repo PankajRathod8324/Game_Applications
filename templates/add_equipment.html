@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<h1 style = "color: #ffc451;">Add Equipment</h1>
+
+
+<div class="container mt-2">
+
+    <div class="row">
+    
+    <div class="col-md-3"> </div>
+    
+    <div class="col-md-6">
+    
+    
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+      <strong></strong> {{message}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    
+    {% comment %} Contact Us COde  {% endcomment %}
+   
+    
+<div class="container" style="margin-top: 60px;">
+  {% comment %} <h3 class="text-center text-primary font-weight-bold">Add Equipment</h3> {% endcomment %}
+  <form action="/add_equipment" method="post">
+      {% csrf_token %}
+      <label for=""><b>Name</b></label>
+      <input type="text" name="name" class="form-control">
+      <label for=""><b>Price (In Php.)</b></label>
+      <input type="text" name="price" class="form-control">
+      <label for=""><b>Unit</b></label>
+      <input type="text" name="unit" class="form-control">
+      <label for=""><b>Date</b></label>
+      <input type="date" name="date" class="form-control">
+      <label for=""><b>Description</b></label>
+      <input type="textarea" name="desc" class="form-control">
+      <br>
+      <input type="submit" value="Submit" class="btn btn-primary">
+  </form>
+</div>
+    {% if error == "no" %}
+    <script>
+        alert('Record Inserted Successfully');
+        window.location=("{% url 'view_equipment' %}")
+    </script>
+    {% endif %}
+    {% if error == 'yes' %}
+    <script>
+        alert('Something went wrong, Try Again');
+    </script>
+    {% endif %}
+    <div class="col-md-3"></div>
+    
+    </div>
+    
+    
+    
+    </div>
+
+
+
+
+{% endblock head %}
+
+{% comment %} {% extends 'base.html' %}
+
+<div class="container" style="margin-top: 60px;">
+    <h3 class="text-center text-primary font-weight-bold">Add Equipment</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for=""><b>Name</b></label>
+        <input type="text" name="name" class="form-control">
+        <label for=""><b>Price (In Php.)</b></label>
+        <input type="text" name="price" class="form-control">
+        <label for=""><b>Unit</b></label>
+        <input type="text" name="unit" class="form-control">
+        <label for=""><b>Date</b></label>
+        <input type="text" name="date" class="form-control">
+        <label for=""><b>Description</b></label>
+        <input type="textarea" name="desc" class="form-control">
+        <br>
+        <input type="submit" value="Submit" class="btn btn-primary">
+    </form>
+</div>
+    {% if error == "no" %}
+    <script>
+        alert('Record Inserted Successfully');
+        window.location=("{% url 'view_equipment' %}")
+    </script>
+    {% endif %}
+    {% if error == 'yes' %}
+    <script>
+        alert('Something went wrong, Try Again');
+    </script>
+    {% endif %} {% endcomment %}
+
+{% comment %} {% extends 'base.html' %}
+{% block title %} Add Equipment {% endblock title%}
+{% block head %}
+
+
+<h1> Add Equipment <h1>
+
+<div class="container mt-2">
+
+    <div class="row">
+    
+    <div class="col-md-3"> </div>
+    
+    <div class="col-md-6">
+    
+    
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+      <strong></strong> {{message}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+   
+    
+
+    <style>
+        h3 {
+          color:#ffc451;
+        }
+    </style>
+
+    <form action="/add_equipment" method="post">{% csrf_token %}
+            {% csrf_token %}
+            <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="EquipmentName"
+                  placeholder="Enter Equipment Name"
+                  required
+                />
+            </div>
+            <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="price"
+                  placeholder="Enter Price"
+                  required
+                />
+            </div>
+            <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="unit"
+                  placeholder="Enter Unit"
+                  required
+                />
+            </div><div class="form-group">
+                <input
+                  type="date"
+                  class="form-control"
+                  name="Date"
+                  placeholder="Enter Date"
+                  required
+                />
+            </div><div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="Description"
+                  placeholder="Enter Description"
+                  required
+                />
+            </div>
+            <br />
+            <div class="d-grid gap-2">
+                <button class="btn btn-warning" type="submit">Add</button>
+            </div>
+      </form>
+    </div>
+    
+    {% if error == "no" %}
+    <script>
+        alert('Record Inserted Successfully');
+        window.location=("{% url 'view_equipment' %}")
+    </script>
+    {% endif %}
+    {% if error == 'yes' %}
+    <script>
+        alert('Something went wrong, Try Again');
+    </script>
+    {% endif %}
+    
+    
+    
+    
+  
+    <div class="col-md-3"></div>
+    
+    </div>
+    
+    
+    
+</div>
+
+
+{% endblock head %} {% endcomment %}
+
+{% comment %} {% extends 'navigation.html' %}
+{% block body %} {% endcomment %}
+{% comment %} {% extends 'base.html' %} {% endcomment %}

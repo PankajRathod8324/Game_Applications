@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}
+Session
+{% endblock title %}
+{% block body %}
+
+
+<div class="container mt-2">
+<Center><h1>Session</h1></Center>
+<div class="row">
+
+
+<div class="col-md-4">
+
+  <hr>
+  <div class = "container">
+    {% for x in video %}
+    <h3 class = "text-center mt-2 mb-2">{{x.caption}}</h3>
+    <video class="video-fluid" width="1000px" height="600px" controls>
+      
+        <source src = "{{x.video.url}}" type="video/mp4"/>
+      
+    </video>
+    {% endfor %}
+  </div>
+
+
+</div>
+
+<br>
+<br>
+
+
+</div>
+</div>
+
+
+
+
+
+{% endblock body %}
